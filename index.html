@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/style.css">
+    <!-- bootstrap и handlebars -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  </head>
+  <body>
+    <p class="btn_wrap">
+      <button type="button" class="btn btn-default btn-info">Get pics</button>
+      <p class="border_bottom"></p>
+    </p>
+    <!-- app выводится в result -->
+    <div class="result"></div>
+
+    <!-- handlebars шаблон -->
+  <script type="text/x-handlebars-template" id="headerTemplate">
+    <div class="description">
+      <!-- итеррирую водящие данные -->
+    {{#each this}}
+      <div class="card" style="width: 20rem;">
+        <div class="img_block">
+            <img class="card-img-top" src="{{urls.small}}" alt="">
+        </div>
+        <div class="card-block">
+          <h4 class="card-title"></h4>
+          <p class="card-text">Name: {{user.name}}</p>
+          <button href="#" class="btn btn-secondary read_more" data-toggle="modal" data-target="#exampleModalCenter">Read more</button>
+        </div>
+      </div>
+      <!-- модальное окно с подробной информацией -->
+      <div id="myModal" class="_modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <img class="modal-img" src="{{urls.regular}}" alt="">
+            <div class="md_content_txt">
+              <div class="by_name">
+                <p><h3>By:</h3> {{user.first_name}}</p>
+                <p><h3>Instagram:</h3> {{user.instagram_username}}</p>
+                <p><h3>Location:</h3> {{user.location}}</p>
+              </div>
+              <!-- вывод описания к фото если имеется -->
+              {{#if description}}
+              <p><h3>Description:</h3> {{description}}</p>
+              {{else}}
+              <p><h3>Description:</h3> there is no description :( </p>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+    {{/each}}
+    </div>
+  </script>
+  <script src= "./dist/bundle.js"></script>
+  </body>
+</html>
+

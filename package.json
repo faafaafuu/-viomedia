@@ -1,0 +1,23 @@
+{
+  "name": "viomedia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p",
+    "watch": "webpack --watch --mode production",
+    "start": "webpack-dev-server --open --mode production"
+  },
+  "author": "farzullaev@bk.ru",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "style-loader": "^0.23.1"
+  }
+}
